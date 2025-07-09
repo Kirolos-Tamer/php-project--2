@@ -77,7 +77,10 @@ function showError($error) {
       </div>
       <div class="input-container">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" 
+          pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,}$" 
+          title="Password must be at least 8 characters, and include letters, numbers, and special characters." 
+          required >
       </div>
       <input type="submit" name="register" value="Sign up">
     </form>
