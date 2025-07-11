@@ -171,6 +171,9 @@ aside ul li:last-child:hover {
     grid-template-rows: 1fr auto;
 
 }
+.content section span {
+    color: #0969da;
+}
 section{
     padding: 20px;
 

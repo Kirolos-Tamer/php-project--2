@@ -1,10 +1,23 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit;
+}
+
+$userFirstName = $_SESSION["firstname"];
+$username = $_SESSION["username"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in to GitHub - GitHub</title>
+    <title>GitHub</title>
     <!-- Logo icon -->
     <link rel="icon" href="assets/images/logo.ico" />
     <!-- Font Awesome css -->
@@ -51,7 +64,7 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="icon logout">
-                    <a href="index.php"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </nav>
@@ -64,27 +77,27 @@
             <ul>
                 <li>
                     <i class="fas fa-user"></i>
-                    <p>username/repo#1</p>
+                    <p><?= $username ?>/repo#1</p>
                 </li>
                 <li>
                     <i class="fas fa-user"></i>
-                    <p>username/repo#2</p>
+                    <p><?= $username ?>/repo#2</p>
                 </li>
                 <li>
                     <i class="fas fa-user"></i>
-                    <p>username/repo#3</p>
+                    <p><?= $username ?>/repo#3</p>
                 </li>
                 <li>
                     <i class="fas fa-user"></i>
-                    <p>username/repo#4</p>
+                    <p><?= $username ?>/repo#4</p>
                 </li>
                 <li>
                     <i class="fas fa-user"></i>
-                    <p>username/repo#5</p>
+                    <p><?= $username ?>/repo#5</p>
                 </li>
                 <li>
                     <i class="fas fa-user"></i>
-                    <p>username/repo#6</p>
+                    <p><?= $username ?>/repo#6</p>
                 </li>
                 <li>
                     Show More
@@ -93,7 +106,7 @@
         </aside>
         <div class="content">
             <section>
-                Welcome ,to Github
+                Welcome <?= $userFirstName ?> ,to Github
             </section>
             <footer>
                 <ul class="links">
@@ -112,6 +125,7 @@
 
     <!-- Bootstrap JS -->
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
